@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"	
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:orientation="vertical"
+	android:background="@drawable/bg"
+>
+<View
+	android:layout_width="fill_parent"
+	android:layout_height="30dip"
+	android:background="@color/cHead"
+	android:layout_marginBottom="10dip"	
+/>
+
+<ScrollView
+		
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	
+	>
+	
+<RelativeLayout
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+
+>
+	<View
+	 	android:layout_width="1px"
+	 	android:layout_height="1px"
+		android:layout_centerInParent="true"
+		android:visibility="invisible"
+		android:id="@+id/center"/>
+	<ImageButton
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:src="@drawable/pin"
+		android:layout_alignParentRight="true"
+		android:id="@+id/location_button"		
+	/>	
+		
+		
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="Waste point location"
+		android:textSize="18dip"
+		android:textColor="#000000"
+		android:id="@+id/location_text"
+		android:layout_toLeftOf="@+id/location_button"
+		android:layout_alignParentLeft="true"
+		
+	/>
+
+	<TextView
+		android:layout_alignRight="@+id/location_text"
+		android:layout_below="@+id/location_text"
+		android:layout_alignBottom="@+id/location_button"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:text="Lat:34.2929328 Log:-54.1398212"
+		android:textSize="12dip"
+		android:textColor="#000000"
+		android:id="@+id/location"
+		android:gravity="center_vertical|left"
+	/>
+	
+	<View
+		android:layout_height="2dip"
+		android:layout_width="fill_parent"
+		android:background="@drawable/juosta"
+		android:layout_below="@+id/location_button"
+		
+	
+	/>
+	
+	<TextView
+		android:layout_height="wrap_content"
+		android:layout_width="fill_parent"
+		android:layout_below="@+id/location_button"
+		android:layout_marginTop="5dip"
+		android:text="Description"
+		android:textSize="18dip"
+		android:textColor="#000000"
+		android:id="@+id/description_text"/>
+		
+	<EditText
+		android:layout_height="wrap_content"
+		android:layout_width="fill_parent"
+		android:layout_below="@+id/description_text"
+		android:text="This is normal description of regular waste point. It should take some space to fill it all"
+		android:textSize="12dip"
+		android:id="@+id/description"
+	/>
+	<View
+		android:layout_height="2dip"
+		android:layout_width="fill_parent"
+		android:background="@drawable/juosta"
+		android:layout_below="@+id/description"		
+	
+	/>
+	
+	<EditText
+		android:layout_height="wrap_content"
+		android:layout_width="wrap_content"
+		android:layout_below="@+id/description"
+		android:layout_alignLeft="@+id/center"		
+		android:layout_marginTop="5dip"
+		android:layout_alignParentRight="true"
+		android:text="10.10"
+		android:textSize="12dip"
+		android:id="@+id/volume"
+	/>	
+	
+	<TextView
+		android:layout_height="wrap_content"
+		android:layout_width="fill_parent"
+		android:layout_alignTop="@+id/volume"
+		android:layout_alignBottom="@+id/volume"
+		android:layout_alignRight="@+id/center"
+		android:text="Volume"
+		android:gravity="center_vertical"
+		android:textSize="18dip"
+		android:textColor="#000000"
+		android:id="@+id/volume_text"/>
+		
+	
+	<View
+		android:layout_height="2dip"
+		android:layout_width="fill_parent"
+		android:background="@drawable/juosta"
+		android:layout_below="@+id/volume"		
+	
+	/>
+	
+	<EditText
+		android:layout_height="wrap_content"
+		android:layout_width="wrap_content"
+		android:layout_below="@+id/volume"
+		android:layout_alignLeft="@+id/center"		
+		android:layout_marginTop="5dip"
+		android:layout_alignParentRight="true"
+		android:text="1231"
+		android:textSize="12dip"
+		android:id="@+id/comp_large"
+	/>	
+	
+	<TextView
+		android:layout_height="wrap_content"
+		android:layout_width="fill_parent"
+		android:layout_alignTop="@+id/comp_large"
+		android:layout_alignBottom="@+id/comp_large"
+		android:layout_alignRight="@+id/center"
+		android:text="Large things"
+		android:gravity="center_vertical"
+		android:textSize="18dip"
+		android:textColor="#000000"
+		android:id="@+id/comp_large_text"/>
+		
+	
+	<View
+		android:layout_height="2dip"
+		android:layout_width="fill_parent"
+		android:background="@drawable/juosta"
+		android:layout_below="@+id/comp_large"		
+	
+	/>
+	
+	<EditText
+		android:layout_height="wrap_content"
+		android:layout_width="wrap_content"
+		android:layout_below="@+id/comp_large"
+		android:layout_alignLeft="@+id/center"		
+		android:layout_marginTop="5dip"
+		android:layout_alignParentRight="true"
+		android:text="1231"
+		android:textSize="12dip"
+		android:id="@+id/comp_glass"
+	/>	
+	
+	<TextView
+		android:layout_height="wrap_content"
+		android:layout_width="fill_parent"
+		android:layout_alignTop="@+id/comp_glass"
+		android:layout_alignBottom="@+id/comp_glass"
+		android:layout_alignRight="@+id/center"
+		android:text="Glass and bottles"
+		android:gravity="center_vertical"
+		android:textSize="18dip"
+		android:textColor="#000000"
+		android:id="@+id/comp_glass_text"/>
+		
+	
+	<View
+		android:layout_height="2dip"
+		android:layout_width="fill_parent"
+		android:background="@drawable/juosta"
+		android:layout_below="@+id/comp_glass"		
+	
+	/>
+
+		<EditText
+		android:layout_height="wrap_content"
+		android:layout_width="wrap_content"
+		android:layout_below="@+id/comp_glass"
+		android:layout_alignLeft="@+id/center"		
+		android:layout_marginTop="5dip"
+		android:layout_alignParentRight="true"
+		android:text="1231"
+		android:textSize="12dip"
+		android:id="@+id/comp_pmp"
+	/>	
+	
+	<TextView
+		android:layout_height="wrap_content"
+		android:layout_width="fill_parent"
+		android:layout_alignTop="@+id/comp_pmp"
+		android:layout_alignBottom="@+id/comp_pmp"
+		android:layout_alignRight="@+id/center"
+		android:text="Plastic and packaging"
+		android:gravity="center_vertical"
+		android:textSize="18dip"
+		android:textColor="#000000"
+		android:id="@+id/comp_pmp_text"/>
+		
+	
+	<View
+		android:layout_height="2dip"
+		android:layout_width="fill_parent"
+		android:background="@drawable/juosta"
+		android:layout_below="@+id/comp_pmp_text"		
+	
+	/>
+	
+
+		<EditText
+		android:layout_height="wrap_content"
+		android:layout_width="wrap_content"
+		android:layout_below="@+id/comp_pmp"
+		android:layout_alignLeft="@+id/center"		
+		android:layout_marginTop="5dip"
+		android:layout_alignParentRight="true"
+		android:text="1231zadcfwqa"
+		android:textSize="12dip"
+		android:id="@+id/comp_other"
+	/>	
+	
+	<TextView
+		android:layout_height="wrap_content"
+		android:layout_width="fill_parent"
+		android:layout_alignTop="@+id/comp_other"
+		android:layout_alignBottom="@+id/comp_other"
+		android:layout_alignRight="@+id/center"
+		android:text="Other"
+		android:gravity="center_vertical"
+		android:textSize="18dip"
+		android:textColor="#000000"
+		android:id="@+id/comp_other_text"/>
+		
+	
+	<View
+		android:layout_height="2dip"
+		android:layout_width="fill_parent"
+		android:background="@drawable/juosta"
+		android:layout_below="@+id/comp_other_text"		
+	
+	/>
+
+		<EditText
+		android:layout_height="wrap_content"
+		android:layout_width="wrap_content"
+		android:layout_below="@+id/comp_other"
+		android:layout_alignLeft="@+id/center"		
+		android:layout_marginTop="5dip"
+		android:layout_alignParentRight="true"
+		android:text="12"
+		android:textSize="12dip"
+		android:id="@+id/nr_of_tires"
+	/>	
+	
+	<TextView
+		android:layout_height="wrap_content"
+		android:layout_width="fill_parent"
+		android:layout_alignTop="@+id/nr_of_tires"
+		android:layout_alignBottom="@+id/nr_of_tires"
+		android:layout_alignRight="@+id/center"
+		android:text="Number of tires"
+		android:gravity="center_vertical"
+		android:textSize="18dip"
+		android:textColor="#000000"
+		android:id="@+id/nr_of_tires_text"/>
+		
+	
+	<View
+		android:layout_height="2dip"
+		android:layout_width="fill_parent"
+		android:background="@drawable/juosta"
+		android:layout_below="@+id/nr_of_tires_text"		
+	
+	/>
+
+			<EditText
+		android:layout_height="wrap_content"
+		android:layout_width="wrap_content"
+		android:layout_below="@+id/nr_of_tires"
+		android:layout_alignLeft="@+id/center"		
+		android:layout_marginTop="5dip"
+		android:layout_alignParentRight="true"
+		android:text="1212121212"
+		android:textSize="12dip"
+		android:id="@+id/comp_paper"
+	/>	
+	
+	<TextView
+		android:layout_height="wrap_content"
+		android:layout_width="fill_parent"
+		android:layout_alignTop="@+id/comp_paper"
+		android:layout_alignBottom="@+id/comp_paper"
+		android:layout_alignRight="@+id/center"
+		android:text="Paper, newspaper"
+		android:gravity="center_vertical"
+		android:textSize="18dip"
+		android:textColor="#000000"
+		android:id="@+id/comp_paper_text"/>
+		
+	
+	<View
+		android:layout_height="2dip"
+		android:layout_width="fill_parent"
+		android:background="@drawable/juosta"
+		android:layout_below="@+id/comp_paper_text"		
+	
+	/>
+
+
+ </RelativeLayout>
+</ScrollView>
+</LinearLayout>

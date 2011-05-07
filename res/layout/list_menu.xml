@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/map"
+          android:title="@string/menu_map"
+          android:icon="@drawable/map" /> 
+     <item android:id="@+id/new_point"
+     	android:icon="@drawable/new_point"
+        android:title="@string/menu_new" />                
+</menu>

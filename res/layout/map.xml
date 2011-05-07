@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >   
+ <com.ito.doit.RestrictMapView
+	android:id="@+id/mapview"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentTop="true"   
+    android:clickable="true"
+    android:apiKey="0NJj_qfZY2upWIcYM2k-ok_eaJPTLAN-WbfJ4Qw"        
+/>
+	<com.ito.doit.CoverView
+		android:layout_centerInParent="true"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:src="@drawable/zone"
+		android:clickable="false"
+		android:focusable="false"
+		android:id="@+id/zone"			
+	/>
+
+	<ImageView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_alignParentRight="true"
+		android:layout_alignParentBottom="true"
+		android:layout_marginBottom="20dip"
+		android:layout_marginRight="20dip"
+		android:src="@drawable/zoom_in"
+		android:id="@+id/zoom_in"
+		android:clickable="true"
+		android:focusable="true"		
+	/>
+	
+	<ImageView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_toLeftOf="@+id/zoom_in"
+		android:layout_alignParentBottom="true"
+		android:layout_marginBottom="20dip"
+		android:layout_marginRight="10dip"
+		android:src="@drawable/zoom_out"
+		android:id="@+id/zoom_out"
+		android:clickable="true"
+		android:focusable="true"		
+	/>
+	
+	
+	
+
+
+
+
+</RelativeLayout>

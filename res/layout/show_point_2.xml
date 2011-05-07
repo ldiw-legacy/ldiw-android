@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+>
+	<ImageView
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"	
+		android:src="@drawable/bg"
+		android:scaleType="centerCrop"
+		android:layout_centerInParent="true"
+		android:clickable="false"
+	/>
+
+	<View
+		android:layout_height="30dip"
+		android:layout_width="fill_parent"
+		android:layout_alignParentTop="true"
+		android:id="@+id/header"
+		android:background="@color/cHead"
+	/>
+	
+	<WebView
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:layout_below="@+id/header"
+		android:id="@+id/webview"	
+	/>
+	
+</RelativeLayout>

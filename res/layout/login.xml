@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	
+>
+	<TextView
+		android:layout_alignParentTop="true"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:text="@string/login_message"
+		android:gravity="center"
+		android:id="@+id/title"
+		android:layout_marginLeft="10dip"
+		android:layout_marginRight="10dip"
+		android:layout_marginBottom="10dip"
+	/>
+	<TextView
+		android:layout_below="@+id/title"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:text="@string/login_user"
+		android:gravity="left"
+		android:id="@+id/text_user"
+		android:layout_marginLeft="10dip"
+		android:layout_marginRight="10dip"
+	/>
+	
+	<EditText
+		android:layout_below="@+id/text_user"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:id="@+id/username"
+		android:layout_marginLeft="10dip"
+		android:layout_marginRight="10dip"
+		android:layout_marginBottom="10dip"
+	/>	
+	<TextView
+		android:layout_below="@+id/username"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:text="@string/login_pass"
+		android:gravity="left"
+		android:id="@+id/text_pass"
+		android:layout_marginLeft="10dip"
+		android:layout_marginRight="10dip"
+	/>
+	
+	<EditText
+		android:layout_below="@+id/text_pass"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:id="@+id/password"
+		android:inputType="textPassword"
+		android:layout_marginLeft="10dip"
+		android:layout_marginRight="10dip"
+		android:layout_marginBottom="10dip"
+	/>
+</RelativeLayout>	

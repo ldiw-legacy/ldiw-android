@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:descendantFocusability="blocksDescendants"
+	>
+	
+	<TextView
+		android:layout_height="55dip"
+		android:layout_width="wrap_content"
+		android:layout_alignParentLeft="true"
+		android:layout_centerVertical="true"
+		android:text="@string/text_id"
+		android:id="@+id/textview_id"
+		android:textColor="@color/cHead"
+		android:gravity="left|center_vertical"
+		android:layout_marginLeft="10dip"
+		android:layout_marginRight="5dip"
+		android:textStyle="bold"
+		android:textSize="@dimen/dTextSize"
+	/>
+	
+	<TextView
+		android:layout_height="55dip"
+		android:layout_width="55dip"
+		android:layout_toRightOf="@+id/textview_id"	
+		android:id="@+id/point_id"
+		android:gravity="left|center_vertical"
+		android:textColor="@color/cText"
+		android:text="ID"
+		android:layout_centerVertical="true"
+		android:textSize="@dimen/dTextSize"/>
+		
+	<TextView
+		android:layout_height="55dip"
+		android:layout_width="wrap_content"
+		android:layout_alignParentRight="true"
+		android:layout_centerVertical="true"
+		android:text="@string/text_metrics"
+		android:id="@+id/textview_metrics"
+		android:layout_marginLeft="5dip"
+		android:layout_marginRight="10dip"
+		android:gravity="right|center_vertical"
+		android:textColor="@color/cHead"
+		android:textSize="@dimen/dTextSize"
+	/>	
+		
+	<TextView
+		android:layout_height="55dip"
+		android:layout_width="75dip"
+		android:layout_toLeftOf="@+id/textview_metrics"
+		android:id="@+id/point_distance"
+		android:gravity="right|center_vertical"
+		android:textColor="@color/cText"
+		android:text="Distant"
+		android:layout_centerVertical="true"
+		android:textSize="@dimen/dTextSize"
+		/>
+		
+		
+		
+	<GridView
+		android:layout_height="55dip"
+		android:layout_width="wrap_content"
+		android:layout_toRightOf="@+id/point_id"
+		android:layout_toLeftOf="@+id/point_distance"
+		android:id="@+id/gridview"
+		android:layout_centerVertical="true"
+		android:gravity="clip_vertical"
+		android:numColumns="3"
+		android:horizontalSpacing="5dip"
+		android:verticalSpacing="5dip"
+		android:columnWidth="75dip"
+		android:stretchMode="columnWidth"
+		android:descendantFocusability="blocksDescendants"
+		/>
+	<View
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:layout_centerInParent="true"
+		android:clickable="true"
+		android:focusable="true"
+	
+	/>		
+		
+		
+</RelativeLayout>

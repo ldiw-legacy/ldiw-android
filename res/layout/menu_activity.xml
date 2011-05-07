@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
+	<ImageView
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:layout_centerInParent="true"
+		android:src="@drawable/bg"
+		android:scaleType="centerCrop"	
+	/>
+	<ImageView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="70dip"
+		android:layout_marginBottom="50dip"
+		android:src="@drawable/doit"
+		android:scaleType="centerInside"
+		android:layout_centerHorizontal="true"
+		android:id="@+id/title"
+	/>
+	
+	<Button
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="@string/button_map"
+		android:textStyle="bold"
+		android:gravity="left|center_vertical"
+		android:textSize="@dimen/dMenuTextSize"
+		android:textColor="@color/cMenuActivity"
+		android:paddingLeft="10dip"
+		android:background="@drawable/activity_button"
+		android:layout_below="@+id/title"
+		android:layout_centerHorizontal="true"
+		android:id="@+id/map"
+		android:layout_marginBottom="8dip"	
+	/>
+	
+		<Button
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="@string/button_list"
+		android:textStyle="bold"
+		android:gravity="left|center_vertical"
+		android:textSize="@dimen/dMenuTextSize"
+		android:textColor="@color/cMenuActivity"
+		android:paddingLeft="10dip"
+		android:background="@drawable/activity_button"
+		android:layout_below="@+id/map"
+		android:layout_centerHorizontal="true"
+		android:id="@+id/list"
+		android:layout_margin="8dip"	
+	/>
+	
+	<Button
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="@string/button_new_point"
+		android:textStyle="bold"
+		android:gravity="left|center_vertical"
+		android:textSize="@dimen/dMenuTextSize"
+		android:textColor="@color/cMenuActivity"
+		android:paddingLeft="10dip"
+		android:background="@drawable/activity_button"
+		android:layout_below="@+id/list"
+		android:layout_centerHorizontal="true"
+		android:id="@+id/new_point"
+		android:layout_margin="8dip"
+	/>
+	
+	<Button
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="@string/button_about"
+		android:textStyle="bold"
+		android:gravity="left|center_vertical"
+		android:textSize="@dimen/dMenuTextSize"
+		android:textColor="@color/cMenuActivity"
+		android:paddingLeft="10dip"
+		android:background="@drawable/activity_button"
+		android:layout_below="@+id/new_point"
+		android:layout_centerHorizontal="true"
+		android:id="@+id/options"
+		android:layout_margin="8dip"	
+	/>
+	
+
+
+
+</RelativeLayout>

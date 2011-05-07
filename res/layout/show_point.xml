@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+>
+	<ImageView
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"	
+		android:src="@drawable/bg"
+		android:scaleType="centerCrop"
+		android:layout_centerInParent="true"
+		android:clickable="false"
+	/>
+
+	<View
+		android:layout_height="30dip"
+		android:layout_width="fill_parent"
+		android:layout_alignParentTop="true"
+		android:id="@+id/header"
+		android:background="@color/cHead"
+		android:layout_marginBottom="10dip"	
+	/>
+	
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_below="@+id/header"
+		android:text="@string/text_id"
+		android:textColor="@color/cHead"
+		android:id="@+id/textview_id"
+		android:textSize="@dimen/dTextSize"
+		android:gravity="left"
+		android:layout_marginLeft="10dip"
+		android:textStyle="bold"/>
+	<TextView
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_below="@+id/header"
+		android:layout_toRightOf="@+id/textview_id"
+		android:textColor="@color/cText"
+		android:id="@+id/text_id"
+		android:gravity="left"
+		android:textSize="@dimen/dTextSize"
+		android:layout_marginLeft="8dip"/>
+		
+	<View
+		android:id="@+id/center"
+		android:layout_centerInParent="true"
+		android:layout_height="1px"
+		android:layout_width="1px"
+		android:visibility="invisible"
+		/>
+		
+		
+<com.google.android.maps.MapView
+	android:id="@+id/mapview"
+    android:layout_width="wrap_content"
+    android:layout_height="100dip"
+    android:layout_below="@+id/textview_id"
+    android:layout_toLeftOf="@+id/center"
+    android:layout_margin="10dip"  
+    android:apiKey="0NJj_qfZY2upI108wYjEoo6nxo7lO1astFQbqlA"
+         
+/>
+
+	<View
+		android:layout_width="wrap_content"
+    	android:layout_height="100dip"
+    	android:layout_below="@+id/textview_id"
+    	android:layout_toLeftOf="@+id/center"
+    	android:layout_margin="10dip"
+    	android:id="@+id/map_overlay"
+	
+	/>
+
+
+	<ViewSwitcher
+		android:layout_width="fill_parent"
+		android:layout_height="100dip"
+		android:layout_alignTop="@+id/mapview"
+		android:layout_toRightOf="@+id/center"
+		android:layout_alignBottom="@+id/mapview"
+		android:layout_marginLeft="10dip"
+		android:layout_marginRight="10dip">
+	<ImageView
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"	
+		android:src="@drawable/no_photo"
+		android:scaleType="centerInside"
+		android:clickable="false"
+		android:id="@+id/photo"		
+	/>
+	<WebView
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:clickable="false"
+		android:id="@+id/webview"		
+	/>
+	
+	
+	
+	</ViewSwitcher>
+
+
+	<View
+		android:layout_width="fill_parent"
+		android:layout_height="2dip"
+		android:background="@drawable/juosta"
+		android:layout_below="@+id/mapview"
+				
+		/>
+<ScrollView
+	android:layout_below="@+id/mapview"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+
+>
+<RelativeLayout
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
+
+
+<TextView
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:layout_alignParentTop="true"
+	android:text="@string/text_composition"
+	android:id="@+id/textView_composition"
+	android:textColor="@color/cHead"
+	android:textSize="@dimen/dTextSize"
+	android:layout_marginLeft="10dip"
+	android:textStyle="bold"
+/>	
+
+<GridView
+	android:layout_below="@+id/textView_composition"
+    android:id="@+id/gridview"
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content"
+    android:columnWidth="75dip"
+    android:numColumns="5"
+    android:verticalSpacing="10dip"
+    android:horizontalSpacing="10dip"
+    android:stretchMode="columnWidth"
+    android:gravity="center"
+    android:clickable="false"
+/>
+
+	<View
+		android:layout_width="fill_parent"
+		android:layout_height="2dip"
+		android:background="@drawable/juosta"
+		android:layout_below="@+id/gridview"
+		android:layout_marginTop="5dip"
+		android:layout_marginBottom="5dip"
+		
+		/>
+
+	
+	
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_below="@+id/gridview"
+		android:text="@string/text_desc"
+		android:textColor="@color/cHead"
+		android:id="@+id/textview_desc"
+		android:textSize="@dimen/dTextSize"
+		android:gravity="left"
+		android:layout_marginLeft="10dip"
+		android:layout_marginTop="10dip"
+		android:textStyle="bold"/>
+
+	<TextView
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_below="@+id/textview_desc"
+		android:textColor="@color/cText"
+		android:id="@+id/text_desc"
+		android:gravity="left"
+		android:text="@string/text_no_desc"
+		android:textSize="@dimen/dTextSize"
+		android:layout_marginTop="10dip"
+		android:layout_marginLeft="8dip"/>
+</RelativeLayout>
+	</ScrollView>
+</RelativeLayout>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/ok"
+    	android:icon="@drawable/ok"
+        android:title="@string/menu_ok"
+    />
+    <item android:id="@+id/cancel"
+    	android:icon="@drawable/cancel"
+        android:title="@string/menu_cancel"
+    />        
+</menu>

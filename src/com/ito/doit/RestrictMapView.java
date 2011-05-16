@@ -1,13 +1,10 @@
 package com.ito.doit;
 
 import android.content.Context;
-import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
-import android.view.GestureDetector.SimpleOnGestureListener;
 
 import com.google.android.maps.GeoPoint;
 import com.google.android.maps.MapController;

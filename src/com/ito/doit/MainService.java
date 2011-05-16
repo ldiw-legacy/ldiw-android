@@ -6,9 +6,10 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Timer;
 import java.util.TimerTask;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
-import com.ito.doit.MyLocation.LocationResult;
+
 import android.app.Service;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -20,6 +21,8 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.util.Log;
 import android.widget.Toast;
+
+import com.ito.doit.MyLocation.LocationResult;
 
 public class MainService extends Service {
   public static final String TAG = "DoItTag";
@@ -35,7 +38,6 @@ public class MainService extends Service {
   private static boolean isWorking = false;
   private static int numberOfUsers = 0;
   private static Timer timer;
-  private static MainService service;
   private static LocationListener locationListener;
   private static OnDataListener dataListener;
 
@@ -104,7 +106,6 @@ public class MainService extends Service {
       mContext = this;
       mHandler = new Handler();
       isWorking = true;
-      service = this;
       locationHelper = new MyLocation();
       location = null;
       startingLocation = null;

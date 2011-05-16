@@ -1,15 +1,14 @@
 package com.ito.doit;
 
+import android.graphics.Point;
+import android.graphics.Rect;
+import android.view.GestureDetector.SimpleOnGestureListener;
+import android.view.MotionEvent;
+
 import com.google.android.maps.GeoPoint;
 import com.google.android.maps.MapController;
 import com.google.android.maps.MapView;
 import com.google.android.maps.Projection;
-
-import android.graphics.Point;
-import android.graphics.Rect;
-import android.util.Log;
-import android.view.MotionEvent;
-import android.view.GestureDetector.SimpleOnGestureListener;
 
 public class RestrictGestureListener extends SimpleOnGestureListener {
 
@@ -42,9 +41,6 @@ public class RestrictGestureListener extends SimpleOnGestureListener {
     center.x += distanceX;
     center.y += distanceY;
     GeoPoint futurePoint = projection.fromPixels(center.x, center.y);
-
-    int x = futurePoint.getLongitudeE6();
-    int y = futurePoint.getLatitudeE6();
 
     if (!rect.contains(futurePoint.getLongitudeE6(), futurePoint.getLatitudeE6())) {
       MapController controller = map.getController();

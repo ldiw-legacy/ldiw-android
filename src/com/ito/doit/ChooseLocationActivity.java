@@ -1,10 +1,22 @@
 package com.ito.doit;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.http.message.BasicNameValuePair;
-import org.json.JSONObject;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.graphics.drawable.Drawable;
+import android.os.Bundle;
+import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.View.OnTouchListener;
+import android.widget.ImageView;
 
 import com.google.android.maps.GeoPoint;
 import com.google.android.maps.MapActivity;
@@ -14,24 +26,6 @@ import com.google.android.maps.Overlay;
 import com.google.android.maps.OverlayItem;
 import com.google.android.maps.Projection;
 
-import android.app.AlertDialog;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.graphics.drawable.Drawable;
-import android.os.Bundle;
-import android.view.KeyEvent;
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.view.MotionEvent;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.View.OnTouchListener;
-import android.widget.EditText;
-import android.widget.ImageView;
-
 public class ChooseLocationActivity extends MapActivity {
 
   public static final int OK = 1;
@@ -39,8 +33,6 @@ public class ChooseLocationActivity extends MapActivity {
   private double lon;
   private MapView mapView;
   private Context mContext;
-  private boolean pressed;
-  private AlertDialog alertDialog;
   private AlertDialog.Builder builder;
   private int pastX;
   private int pastY;
@@ -53,8 +45,6 @@ public class ChooseLocationActivity extends MapActivity {
     thread.start();
     super.onCreate(savedInstanceState);
     setContentView(R.layout.map);
-    alertDialog = null;
-    pressed = false;
     mContext = this;
     mapView = (MapView) findViewById(R.id.mapview);
     mapView.setOnTouchListener(new OnTouchListener() {

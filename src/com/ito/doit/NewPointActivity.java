@@ -83,8 +83,6 @@ public class NewPointActivity extends MapActivity {
   private ToggleButton modeButton;
   private File photoFile;
   private boolean gpsLocation;
-  private AlertDialog.Builder alertDialog;
-  private Activity mActivity;
   private ViewSwitcher switcher;
   private boolean added;
   private boolean afterResult;
@@ -95,7 +93,6 @@ public class NewPointActivity extends MapActivity {
     gpsLocation = true;
     super.onCreate(savedInstanceState);
     setContentView(R.layout.new_point);
-    mActivity = this;
     afterResult = false;
     sharedPool = SharedPool.getInstance();
     mContext = this;
@@ -163,27 +160,6 @@ public class NewPointActivity extends MapActivity {
 
   }
 
-  private Runnable createDialog = new Runnable() {
-    @Override
-    public void run() {
-      try {
-        if (mActivity == null)
-          return;
-        alertDialog = showDialog(mActivity);
-        mHandler.post(showDialog);
-      } catch (Exception e) {
-        mHandler.post(createDialog);
-      }
-    }
-  };
-
-  private Runnable showDialog = new Runnable() {
-    @Override
-    public void run() {
-      alertDialog.show();
-    }
-  };
-
   private Runnable addPoint = new Runnable() {
     @Override
     public void run() {
@@ -250,17 +226,6 @@ public class NewPointActivity extends MapActivity {
       mHandler.post(finishAdd);
     }
 
-  };
-
-  private Runnable notLogin = new Runnable() {
-    @Override
-    public void run() {
-      Toast.makeText(mContext, R.string.message_not_login, Toast.LENGTH_SHORT).show();
-      progress.hide();
-      sendData.setEnabled(true);
-      Thread create = new Thread(createDialog);
-      create.start();
-    }
   };
 
   private Runnable finishAdd = new Runnable() {
@@ -733,78 +698,6 @@ public class NewPointActivity extends MapActivity {
         switcher.setVisibility(View.VISIBLE);
         afterResult = false;
       }
-    }
-  };
-
-  public AlertDialog.Builder showDialog(final Activity mActivity) {
-    LayoutInflater inflater = (LayoutInflater) mActivity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-    final View view = inflater.inflate(R.layout.login, null);
-    AlertDialog.Builder dialog = new AlertDialog.Builder(mActivity);
-    dialog.setTitle(R.string.login_title);
-    dialog.setView(view);
-    dialog.setNeutralButton(R.string.login_yes, new AlertDialog.OnClickListener() {
-      @Override
-      public void onClick(DialogInterface arg0, int arg1) {
-        if (!AppConstants.isLogged) {
-          Thread thread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-              AppConstants.isLogged = true;
-              SharedPool sharedPool = SharedPool.getInstance();
-              ArrayList<BasicNameValuePair> pairs = new ArrayList<BasicNameValuePair>();
-
-              EditText edit = (EditText) view.findViewById(R.id.username);
-              String username = edit.getText().toString();
-              pairs.add(new BasicNameValuePair(MainService.USERNAME, username));
-
-              edit = (EditText) view.findViewById(R.id.password);
-              String pass = edit.getText().toString();
-              pairs.add(new BasicNameValuePair(MainService.PASSWORD, pass));
-
-              while (!sharedPool.containsKey(MainService.API_BASE_URL_KEY)) {
-              }
-
-              String url = (String) sharedPool.get(MainService.API_BASE_URL_KEY);
-              JSONObject login = null;
-              int count = 5;
-              while (login == null && count != 0) {
-                login = Downloader.getJSONObject(url.concat(AppConstants.ADDRESS_JSON_LOGIN), pairs, null);
-                count--;
-              }
-
-              if (login != null) {
-                sharedPool.put(AppConstants.SP_USERNAME, username);
-                sharedPool.put(AppConstants.SP_JSON_LOGIN, login);
-                MainService.saveUserPass(mContext, username, pass);
-              } else {
-                AppConstants.isLogged = false;
-              }
-              mHandler.post(showToastLogin);
-            }
-          });
-          thread.start();
-        }
-      }
-    });
-
-    dialog.setNegativeButton(R.string.login_no, new AlertDialog.OnClickListener() {
-      @Override
-      public void onClick(DialogInterface arg0, int arg1) {
-        mActivity.finish();
-      }
-    });
-    return dialog;
-  }
-
-  private Runnable showToastLogin = new Runnable() {
-    @Override
-    public void run() {
-      if (AppConstants.isLogged) {
-        Toast.makeText(mContext, R.string.toast_login, Toast.LENGTH_SHORT).show();
-      } else {
-        Toast.makeText(mContext, R.string.toast_login_fail, Toast.LENGTH_SHORT).show();
-      }
-
     }
   };
 

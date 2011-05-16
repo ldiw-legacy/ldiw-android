@@ -183,6 +183,7 @@ public class NewPointActivity extends MapActivity {
       ArrayList<BasicNameValuePair> array = new ArrayList<BasicNameValuePair>();
       array.add(new BasicNameValuePair("lat", String.valueOf(lat)));
       array.add(new BasicNameValuePair("lon", String.valueOf(lon)));
+      
       if (photoFile != null) {
         Rect out = new Rect();
         BitmapFactory.Options options = new BitmapFactory.Options();
@@ -294,7 +295,7 @@ public class NewPointActivity extends MapActivity {
     MainService.setLocationListener(listener);
     doWork = true;
     if (!finished) {
-      Thread thread = new Thread(generateAtributes);
+      Thread thread = new Thread(generateAttributes);
       thread.start();
     }
     if (lat == null || lon == null) {
@@ -391,7 +392,7 @@ public class NewPointActivity extends MapActivity {
     }
   };
 
-  private Runnable generateAtributes = new Runnable() {
+  private Runnable generateAttributes = new Runnable() {
     @Override
     public void run() {
       if (viewGroup == null)
@@ -753,23 +754,7 @@ public class NewPointActivity extends MapActivity {
   }
 
   private boolean validateData() {
-    EditText edit;
-    if ((Boolean) sharedPool.get(AppConstants.SP_MODE)) {
-      for (FieldInfo info : map) {
-        if (info.viewName.contentEquals(EditText.class.getSimpleName())) {
-          edit = (EditText) info.view;
-          try {
-            String text = edit.getEditableText().toString();
-            if (text == null || text.length() == 0) {
-              Toast.makeText(mContext, "Not all field are filled! It is required in ADVANCED mode", Toast.LENGTH_SHORT).show();
-              return false;
-            }
-          } catch (Exception e) {
-            return false;
-          }
-        }
-      }
-    }
+
     if (photoFile == null) {
       Toast.makeText(mContext, "Photo is required!", Toast.LENGTH_SHORT).show();
       return false;

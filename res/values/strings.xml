@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-<string name="app_name">Let\'s Do IT</string>
+<string name="app_name">World Cleanup Waste Mapper</string>
 <string name="list_empty">Loading list of waste points</string>
 <string name="list_text">List</string>
 <string name="text_id">ID: </string>

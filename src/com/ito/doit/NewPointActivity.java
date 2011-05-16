@@ -100,10 +100,7 @@ public class NewPointActivity extends MapActivity {
     sharedPool = SharedPool.getInstance();
     mContext = this;
     mHandler = new Handler();
-    if (!AppConstants.isLogged) {
-      Thread create = new Thread(createDialog);
-      create.start();
-    }
+
     map = new ArrayList<FieldInfo>();
     fieldSets = new HashMap<String, Set<String>>();
     lat = null;
@@ -190,19 +187,23 @@ public class NewPointActivity extends MapActivity {
   private Runnable addPoint = new Runnable() {
     @Override
     public void run() {
-      while (!sharedPool.containsKey(MainService.API_BASE_URL_KEY)) {
-      }
+
       String url = (String) sharedPool.get(MainService.API_BASE_URL_KEY);
       if (url == null)
         return;
       url = url.concat(AppConstants.ADDRESS_PUT_WASTE_POINT);
 
+      //Get the session
       JSONObject session = (JSONObject) sharedPool.get(AppConstants.SP_JSON_LOGIN);
-      if (session == null) {
-        mHandler.post(notLogin);
-        return;
+      String sessionString = null;
+      if (session != null) {
+        try {
+          sessionString = session.getString("session_name") + "=" + session.getString("sessid");
+        } catch (JSONException e1) {
+          e1.printStackTrace();
+        }
       }
-
+      
       ArrayList<BasicNameValuePair> array = new ArrayList<BasicNameValuePair>();
       array.add(new BasicNameValuePair("lat", String.valueOf(lat)));
       array.add(new BasicNameValuePair("lon", String.valueOf(lon)));
@@ -229,13 +230,13 @@ public class NewPointActivity extends MapActivity {
 
       Boolean mode = (Boolean) sharedPool.get(AppConstants.SP_MODE);
       if (mode) {
-        insertAtributes(array);
+        insertAttributes(array);
       }
       JSONObject object = null;
       int count = 5;
       while (object == null && count > 0) {
         try {
-          object = Downloader.getJSONObject(url, array, session.getString("session_name") + "=" + session.getString("sessid"));
+          object = Downloader.getJSONObject(url, array, sessionString);
           count--;
         } catch (Exception e) {
         }
@@ -283,7 +284,7 @@ public class NewPointActivity extends MapActivity {
     }
   };
 
-  private void insertAtributes(ArrayList<BasicNameValuePair> array) {
+  private void insertAttributes(ArrayList<BasicNameValuePair> array) {
     for (FieldInfo info : map) {
       String type = info.viewName;
       if (type.contentEquals(EditText.class.getSimpleName())) {

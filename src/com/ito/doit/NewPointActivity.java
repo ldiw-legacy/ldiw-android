@@ -182,7 +182,7 @@ public class NewPointActivity extends MapActivity {
         ByteArrayOutputStream outStream = new ByteArrayOutputStream();
         try {
           Bitmap bitmapPhoto = BitmapFactory.decodeStream(new FileInputStream(photoFile), out, options);
-          bitmapPhoto.compress(CompressFormat.JPEG, 90, outStream);
+          bitmapPhoto.compress(CompressFormat.JPEG, 60, outStream);
         } catch (FileNotFoundException e) {
         }
         String data = null;

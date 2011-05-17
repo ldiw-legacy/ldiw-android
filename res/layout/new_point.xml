@@ -1,126 +1,90 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<RelativeLayout
-	xmlns:android="http://schemas.android.com/apk/res/android"	
-	android:layout_width="fill_parent"
-	android:layout_height="fill_parent"
-	android:orientation="vertical"
-	
->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent" android:layout_height="fill_parent"
+  android:orientation="vertical" android:background="@drawable/bg">
 
-<ImageView
-	android:layout_width="fill_parent"
-	android:layout_height="fill_parent"
-	android:layout_centerInParent="true"
-	android:src="@drawable/bg"
-	android:scaleType="centerCrop"
-/>
-
-<com.ito.doit.IMEView
-	android:layout_width="fill_parent"
-	android:layout_height="fill_parent"
-	android:layout_centerInParent="true"
-	android:id="@+id/imeListener"
-/>
-
-
-<View
-	android:layout_width="fill_parent"
-	android:layout_height="30dip"
-	android:background="@color/cHead"
-	android:layout_marginBottom="10dip"
-	android:layout_alignParentTop="true"
-	android:id="@+id/header"	
-/>
-
-	<View
-		android:layout_width="1px"
-		android:layout_height="1px"
-		android:layout_centerInParent="true"
-		android:visibility="invisible"
-		android:id="@+id/center"
-	/>
-	
-	<com.google.android.maps.MapView
-		android:id="@+id/mapview"
-	    android:layout_width="wrap_content"
-	    android:layout_height="100dip"
-	    android:layout_below="@+id/header"
-	    android:layout_toLeftOf="@+id/center"
-	    android:layout_margin="10dip"  
-	    android:apiKey="0NJj_qfZY2upWIcYM2k-ok_eaJPTLAN-WbfJ4Qw"/>
-	 <View
-	 	android:layout_width="wrap_content"
-	    android:layout_height="100dip"
-	    android:layout_below="@+id/header"
-	    android:layout_toLeftOf="@+id/center"
-	    android:layout_margin="10dip"
-	    android:id="@+id/mapview_cover"	 
-	 />   
-	    
-	<ViewSwitcher
-		android:layout_width="fill_parent"
-	    android:layout_height="fill_parent"
-		android:layout_alignTop="@+id/mapview"
-		android:layout_alignBottom="@+id/mapview"
-		android:layout_toRightOf="@+id/center"
-		android:layout_marginLeft="10dip"
-		android:layout_marginRight="10dip"
-		android:id="@+id/switcher"
-		>
-	<ImageButton
-		android:layout_width="fill_parent"
-	    android:layout_height="fill_parent"
-	   	android:layout_gravity="center"
-	   	android:layout_marginTop="10dip"
-	   	android:layout_marginBottom="10dip"
-		android:src="@drawable/camera"
-		android:id="@+id/camera_button"		
-	/>
-	
-	<ImageView
-		android:layout_width="fill_parent"
-	    android:layout_height="fill_parent"
-	    android:layout_gravity="center"
-	    android:id="@+id/photo"		
-	/>	
-	
-	</ViewSwitcher>
-
-<ToggleButton
-	android:layout_height="wrap_content"
-	android:layout_width="fill_parent"
-	android:layout_toRightOf="@+id/center"
-	android:layout_alignParentBottom="true"
-	android:layout_margin="10dip"
-	android:textOn="@string/mode_advanced"
-	android:textOff="@string/mode_advanced"
-	android:id="@+id/modeChanger"
-/>
-
-
-<Button
-	android:layout_height="wrap_content"
-	android:layout_width="fill_parent"
-	android:layout_toLeftOf="@+id/center"
-	android:text="ADD NEW POINT"
-	android:layout_alignParentBottom="true"
-	android:id="@+id/confirm"
-	android:layout_margin="10dip"
-/>
-
-
-
-
-
-<ScrollView		
-	android:layout_width="fill_parent"
-	android:layout_height="wrap_content"
-	android:layout_below="@+id/mapview"
-	android:layout_above="@+id/confirm"
-	android:id="@+id/container"
-	>
+<ScrollView
+  android:layout_height="fill_parent"
+  android:layout_width="fill_parent">
+  <LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <com.ito.doit.IMEView 
+      android:layout_width="fill_parent"
+      android:layout_height="0dp" 
+      android:layout_centerInParent="true"
+      android:id="@+id/imeListener" />
+  
+    <View 
+      android:layout_width="fill_parent" 
+      android:layout_height="30dip"
+      android:background="@color/cHead" 
+      android:layout_marginBottom="10dip"
+      android:layout_alignParentTop="true" 
+      android:id="@+id/header" />
+      
+    <ViewSwitcher 
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content" 
+      android:layout_alignTop="@+id/mapview"
+      android:layout_alignBottom="@+id/mapview" 
+      android:layout_toRightOf="@+id/center"
+      android:layout_margin="10dip"
+      android:id="@+id/switcher">
+      <ImageButton 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" 
+        android:layout_gravity="center"
+        android:layout_marginTop="10dip" 
+        android:layout_marginBottom="10dip"
+        android:src="@drawable/camera" 
+        android:id="@+id/camera_button" />
+  
+      <ImageView 
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" 
+        android:layout_gravity="center"
+        android:id="@+id/photo" />
+    </ViewSwitcher>
+    
+    <RelativeLayout
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content">
+      <com.google.android.maps.MapView
+        android:id="@+id/mapview" 
+        android:layout_width="fill_parent"
+        android:layout_height="100dip" 
+        android:layout_below="@+id/header"
+        android:layout_toLeftOf="@+id/center" 
+        android:layout_margin="10dip"
+        android:apiKey="0NJj_qfZY2upWIcYM2k-ok_eaJPTLAN-WbfJ4Qw" />
+      <View 
+        android:layout_width="fill_parent" 
+        android:layout_height="100dip"
+        android:layout_margin="10dip" 
+        android:id="@+id/mapview_cover" />
+    </RelativeLayout>
+  
+    <LinearLayout 
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content" 
+      android:layout_above="@+id/confirm" 
+      android:id="@+id/container"/>
+     
+    <Button 
+      android:layout_height="wrap_content"
+      android:layout_width="fill_parent" 
+      android:layout_toLeftOf="@+id/center"
+      android:text="ADD NEW POINT" 
+      android:layout_alignParentBottom="true"
+      android:textColor="@color/cHead"
+      android:textStyle="bold"
+      android:id="@+id/confirm" 
+      android:layout_margin="10dip"
+      android:layout_marginTop="25dp" />
+      
+  </LinearLayout>
 </ScrollView>
 
-
-
-</RelativeLayout>
+</LinearLayout>

@@ -10,29 +10,25 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Set;
+
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import com.google.android.maps.GeoPoint;
-import com.google.android.maps.MapActivity;
-import com.google.android.maps.MapController;
-import com.google.android.maps.MapView;
-import com.google.android.maps.Overlay;
-import com.google.android.maps.OverlayItem;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.DialogInterface.OnCancelListener;
+import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.graphics.Bitmap.CompressFormat;
 import android.graphics.BitmapFactory;
 import android.graphics.Rect;
-import android.graphics.Bitmap.CompressFormat;
 import android.graphics.drawable.Drawable;
 import android.location.Location;
 import android.net.Uri;
@@ -43,12 +39,11 @@ import android.text.InputType;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -58,7 +53,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 import android.widget.ViewSwitcher;
-import android.widget.CompoundButton.OnCheckedChangeListener;
+
+import com.google.android.maps.GeoPoint;
+import com.google.android.maps.MapActivity;
+import com.google.android.maps.MapController;
+import com.google.android.maps.MapView;
+import com.google.android.maps.Overlay;
+import com.google.android.maps.OverlayItem;
 
 public class NewPointActivity extends MapActivity {
 
@@ -102,17 +103,6 @@ public class NewPointActivity extends MapActivity {
     fieldSets = new HashMap<String, Set<String>>();
     lat = null;
     lon = null;
-
-    modeButton = (ToggleButton) findViewById(R.id.modeChanger);
-    modeButton.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-      @Override
-      public void onCheckedChanged(CompoundButton arg0, boolean state) {
-        Boolean mode = (Boolean) sharedPool.get(AppConstants.SP_MODE);
-        if (state != mode) {
-          changeMode();
-        }
-      }
-    });
 
     mapView = (MapView) findViewById(R.id.mapview);
 
@@ -205,10 +195,8 @@ public class NewPointActivity extends MapActivity {
           array.add(new BasicNameValuePair("photo_file_1", data));
       }
 
-      Boolean mode = (Boolean) sharedPool.get(AppConstants.SP_MODE);
-      if (mode) {
-        insertAttributes(array);
-      }
+      insertAttributes(array);
+      
       JSONObject object = null;
       int count = 5;
       while (object == null && count > 0) {
@@ -284,7 +272,6 @@ public class NewPointActivity extends MapActivity {
     Intent intent = new Intent(DoItActions.ACTIONS_STOP_SEEK_LOCATION);
     mContext.sendBroadcast(intent);
     MainService.gone();
-    // timer.cancel();
   }
 
   @Override
@@ -304,47 +291,12 @@ public class NewPointActivity extends MapActivity {
     } else {
       mHandler.post(setLocation);
     }
-    validateMode();
 
     if (gpsLocation) {
       Intent intent = new Intent(DoItActions.ACTIONS_START_SEEK_LOCATION);
       mContext.sendBroadcast(intent);
     }
 
-    // timer = new Timer();
-    // timer.scheduleAtFixedRate(checkStatus, 100, 100);
-  }
-
-  private void validateMode() {
-    Boolean mode;
-    if (!sharedPool.containsKey(AppConstants.SP_MODE)) {
-      mode = false;
-      sharedPool.put(AppConstants.SP_MODE, mode);
-    } else {
-      mode = (Boolean) sharedPool.get(AppConstants.SP_MODE);
-      if (mode == null) {
-        mode = false;
-        sharedPool.put(AppConstants.SP_MODE, mode);
-      }
-    }
-    if (mode) {
-      viewGroup.setVisibility(View.VISIBLE);
-    } else {
-      viewGroup.setVisibility(View.GONE);
-    }
-    modeButton.setChecked(mode);
-  }
-
-  private void changeMode() {
-    Boolean mode = (Boolean) sharedPool.get(AppConstants.SP_MODE);
-    mode = !mode;
-    sharedPool.put(AppConstants.SP_MODE, mode);
-    if (mode) {
-      viewGroup.setVisibility(View.VISIBLE);
-    } else {
-      viewGroup.setVisibility(View.GONE);
-    }
-    modeButton.setChecked(mode);
   }
 
   private Runnable getLocation = new Runnable() {

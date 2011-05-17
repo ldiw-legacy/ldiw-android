@@ -27,6 +27,7 @@
 	<activity android:name=".NewPointActivity"
 		android:theme="@style/Theme.NoBackgroundAndTitle"
 		android:launchMode="singleTop"
+        android:screenOrientation="portrait"
 		></activity>
 	<activity android:name=".ChooseLocationActivity"
 		android:theme="@style/Theme.NoBackgroundAndTitle"

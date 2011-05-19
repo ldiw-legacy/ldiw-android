@@ -63,7 +63,7 @@ import com.google.android.maps.OverlayItem;
 
 public class NewPointActivity extends MapActivity {
 
-  public static final int REQUEST_CODE_MAP = 22; // Nice number, in fact :)
+  public static final int REQUEST_CODE_MAP = 22;
   public static final int REQUEST_CODE_CAMERA = 12;
 
   private SharedPool sharedPool;

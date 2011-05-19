@@ -6,11 +6,15 @@ import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONObject;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.Handler;
+import android.provider.Settings;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -18,7 +22,6 @@ import android.widget.Toast;
 
 public class MenuActivity extends Activity {
 
-  private Context mContext;
   private String username;
   private String pass;
   private Handler mHandler;
@@ -28,7 +31,6 @@ public class MenuActivity extends Activity {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.menu_activity);
-    mContext = this;
     SharedPool sharedPool = SharedPool.getInstance();
     preferences = getSharedPreferences(MainService.SHARED_PREFS, Context.MODE_PRIVATE);
     int value = preferences.getInt(AppConstants.SP_BBOX_VALUE, AppConstants.DEFAULT_BBOX_VALUE);
@@ -59,8 +61,8 @@ public class MenuActivity extends Activity {
     button.setOnClickListener(new OnClickListener() {
       @Override
       public void onClick(View arg0) {
-        Intent intent = new Intent(mContext, Map.class);
-        mContext.startActivity(intent);
+        Intent intent = new Intent(MenuActivity.this, Map.class);
+        startActivity(intent);
       }
     });
 
@@ -68,8 +70,8 @@ public class MenuActivity extends Activity {
     button.setOnClickListener(new OnClickListener() {
       @Override
       public void onClick(View arg0) {
-        Intent intent = new Intent(mContext, PointsListActivity.class);
-        mContext.startActivity(intent);
+        Intent intent = new Intent(MenuActivity.this, PointsListActivity.class);
+        startActivity(intent);
       }
     });
 
@@ -77,8 +79,27 @@ public class MenuActivity extends Activity {
     button.setOnClickListener(new OnClickListener() {
       @Override
       public void onClick(View arg0) {
-        Intent intent = new Intent(mContext, NewPointActivity.class);
-        mContext.startActivity(intent);
+        
+        if(gpsIsEnabled()) {
+          Intent intent = new Intent(MenuActivity.this, NewPointActivity.class);
+          startActivity(intent);
+        } else {
+          AlertDialog.Builder builder = new AlertDialog.Builder(MenuActivity.this);
+          builder.setTitle(R.string.dialog_gps_title);
+          builder.setMessage(R.string.dialog_gps_message);
+          builder.setPositiveButton(R.string.dialog_gps_ok, new DialogInterface.OnClickListener() {
+            
+            public void onClick(DialogInterface dialog, int which) {
+              Intent settingsIntent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+              startActivity(settingsIntent);
+            }
+          });
+          builder.setNegativeButton(R.string.dialog_gps_cancel, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) { }
+          });
+          builder.setCancelable(false);
+          builder.show();
+        }
       }
     });
 
@@ -86,8 +107,8 @@ public class MenuActivity extends Activity {
     button.setOnClickListener(new OnClickListener() {
       @Override
       public void onClick(View arg0) {
-        Intent intent = new Intent(mContext, OptionsActivity.class);
-        mContext.startActivity(intent);
+        Intent intent = new Intent(MenuActivity.this, OptionsActivity.class);
+        startActivity(intent);
       }
     });
 
@@ -102,7 +123,7 @@ public class MenuActivity extends Activity {
   @Override
   protected void onResume() {
     super.onResume();
-    MainService.startService(mContext);
+    MainService.startService(MenuActivity.this);
   }
 
   private Runnable tryLogin = new Runnable() {
@@ -128,7 +149,7 @@ public class MenuActivity extends Activity {
       if (login != null) {
         sharedPool.put(AppConstants.SP_USERNAME, username);
         sharedPool.put(AppConstants.SP_JSON_LOGIN, login);
-        MainService.saveUserPass(mContext, username, pass);
+        MainService.saveUserPass(MenuActivity.this, username, pass);
       } else {
         AppConstants.isLogged = false;
         SharedPreferences.Editor editor = preferences.edit();
@@ -147,11 +168,16 @@ public class MenuActivity extends Activity {
     @Override
     public void run() {
       if (AppConstants.isLogged) {
-        Toast.makeText(mContext, R.string.toast_login, Toast.LENGTH_SHORT).show();
+        Toast.makeText(MenuActivity.this, R.string.toast_login, Toast.LENGTH_SHORT).show();
       } else {
-        Toast.makeText(mContext, R.string.toast_login_fail, Toast.LENGTH_SHORT).show();
+        Toast.makeText(MenuActivity.this, R.string.toast_login_fail, Toast.LENGTH_SHORT).show();
       }
     }
   };
 
+  private boolean gpsIsEnabled() {
+    LocationManager manager = (LocationManager) getSystemService(LOCATION_SERVICE);
+    return manager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+  }
+  
 }

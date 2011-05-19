@@ -173,6 +173,10 @@ public final class R {
         public static final int choose_msg=0x7f060035;
         public static final int choose_set=0x7f060036;
         public static final int choose_title=0x7f060034;
+        public static final int dialog_gps_cancel=0x7f060042;
+        public static final int dialog_gps_message=0x7f060040;
+        public static final int dialog_gps_ok=0x7f060041;
+        public static final int dialog_gps_title=0x7f06003f;
         public static final int list_empty=0x7f060001;
         public static final int list_text=0x7f060002;
         public static final int login_message=0x7f06001a;

@@ -24,54 +24,49 @@
       android:layout_alignParentTop="true" 
       android:id="@+id/header" />
       
-    <ViewSwitcher 
+    <ImageView 
       android:layout_width="fill_parent"
-      android:layout_height="wrap_content" 
-      android:layout_alignTop="@+id/mapview"
-      android:layout_alignBottom="@+id/mapview" 
-      android:layout_toRightOf="@+id/center"
+      android:layout_height="fill_parent" 
+      android:layout_gravity="center"
+      android:id="@+id/photo" />
+      
+    <Button
+      android:layout_height="wrap_content"
+      android:layout_width="wrap_content"
       android:layout_margin="10dip"
-      android:id="@+id/switcher">
-      <ImageButton 
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content" 
-        android:layout_gravity="center"
-        android:layout_marginTop="10dip" 
-        android:layout_marginBottom="10dip"
-        android:src="@drawable/camera" 
-        android:id="@+id/camera_button" />
-  
-      <ImageView 
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent" 
-        android:layout_gravity="center"
-        android:id="@+id/photo" />
-    </ViewSwitcher>
+      android:text="@string/add_details"
+      android:id="@+id/further_details_trigger"/>
     
-    <RelativeLayout
+    <LinearLayout
       android:layout_width="fill_parent"
-      android:layout_height="wrap_content">
-      <com.google.android.maps.MapView
-        android:id="@+id/mapview" 
+      android:layout_height="wrap_content"
+      android:orientation="vertical"
+      android:visibility="gone"
+      android:id="@+id/further_details_wrapper">
+      
+      <RelativeLayout
         android:layout_width="fill_parent"
-        android:layout_height="100dip" 
-        android:layout_below="@+id/header"
-        android:layout_toLeftOf="@+id/center" 
-        android:layout_margin="10dip"
-        android:apiKey="0NJj_qfZY2upWIcYM2k-ok_eaJPTLAN-WbfJ4Qw" />
-      <View 
-        android:layout_width="fill_parent" 
-        android:layout_height="100dip"
-        android:layout_margin="10dip" 
-        android:id="@+id/mapview_cover" />
-    </RelativeLayout>
-  
-    <LinearLayout 
-      android:layout_width="fill_parent"
-      android:layout_height="wrap_content" 
-      android:layout_above="@+id/confirm" 
-      android:id="@+id/container"/>
-     
+        android:layout_height="wrap_content">
+        <com.google.android.maps.MapView
+          android:id="@+id/mapview" 
+          android:layout_width="fill_parent"
+          android:layout_height="100dip"  
+          android:layout_margin="10dip"
+          android:apiKey="0NJj_qfZY2upWIcYM2k-ok_eaJPTLAN-WbfJ4Qw" />
+        <View 
+          android:layout_width="fill_parent" 
+          android:layout_height="100dip"
+          android:layout_margin="10dip" 
+          android:id="@+id/mapview_cover" />
+      </RelativeLayout>
+    
+      <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/container"/>
+        
+    </LinearLayout>
+    
     <Button 
       android:layout_height="wrap_content"
       android:layout_width="fill_parent" 
@@ -86,5 +81,6 @@
       
   </LinearLayout>
 </ScrollView>
+
 
 </LinearLayout>

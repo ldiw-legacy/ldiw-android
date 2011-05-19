@@ -45,7 +45,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
@@ -68,7 +67,7 @@ public class NewPointActivity extends MapActivity {
 
   private SharedPool sharedPool;
   private ViewGroup viewGroup;
-  private LinearLayout layout;
+  private LinearLayout layout, furtherDetailsWrapper;
   private Context mContext;
   private Handler mHandler;
   private boolean doWork;
@@ -80,7 +79,7 @@ public class NewPointActivity extends MapActivity {
   private Location location;
   private MapView mapView;
   private Uri imageUri;
-  private Button sendData;
+  private Button sendData, furtherDetailsButton;
   private ToggleButton modeButton;
   private File photoFile;
   private boolean gpsLocation;
@@ -91,6 +90,11 @@ public class NewPointActivity extends MapActivity {
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
+    
+    if (photoFile == null) {
+      startCameraActivity();
+    }
+    
     gpsLocation = true;
     super.onCreate(savedInstanceState);
     setContentView(R.layout.new_point);
@@ -120,22 +124,15 @@ public class NewPointActivity extends MapActivity {
         }
       }
     });
-
-    switcher = (ViewSwitcher) findViewById(R.id.switcher);
-
-    ImageButton imgButton = (ImageButton) findViewById(R.id.camera_button);
-    imgButton.setOnClickListener(new OnClickListener() {
+    
+    furtherDetailsWrapper = (LinearLayout) findViewById(R.id.further_details_wrapper);
+    
+    furtherDetailsButton = (Button) findViewById(R.id.further_details_trigger);
+    furtherDetailsButton.setText(getResources().getString(R.string.add_details));
+    furtherDetailsButton.setOnClickListener(new OnClickListener() {
       @Override
       public void onClick(View v) {
-        String fileName = "new-photo-name.jpg";
-        ContentValues values = new ContentValues();
-        values.put(MediaStore.Images.Media.TITLE, fileName);
-        values.put(MediaStore.Images.Media.DESCRIPTION, "Image capture by camera");
-        imageUri = getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
-        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
-        intent.putExtra(MediaStore.EXTRA_VIDEO_QUALITY, 0);
-        startActivityForResult(intent, REQUEST_CODE_CAMERA);
+        toggleFurtherDetailsVisibility();
       }
     });
 
@@ -150,6 +147,28 @@ public class NewPointActivity extends MapActivity {
 
   }
 
+  private void startCameraActivity() {
+    String fileName = "new-photo-name.jpg";
+    ContentValues values = new ContentValues();
+    values.put(MediaStore.Images.Media.TITLE, fileName);
+    values.put(MediaStore.Images.Media.DESCRIPTION, "Image capture by camera");
+    imageUri = getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
+    Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+    intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
+    intent.putExtra(MediaStore.EXTRA_VIDEO_QUALITY, 0);
+    startActivityForResult(intent, REQUEST_CODE_CAMERA);
+  }
+  
+  private void toggleFurtherDetailsVisibility() {
+    if (furtherDetailsWrapper.getVisibility() == View.GONE) {
+      furtherDetailsWrapper.setVisibility(View.VISIBLE);
+      furtherDetailsButton.setText(getResources().getString(R.string.hide_details));
+    } else {
+      furtherDetailsWrapper.setVisibility(View.GONE);
+      furtherDetailsButton.setText(getResources().getString(R.string.add_details));
+    }
+  }
+  
   private Runnable addPoint = new Runnable() {
     @Override
     public void run() {

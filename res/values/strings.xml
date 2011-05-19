@@ -92,4 +92,6 @@
     clicking Enable GPS. Press back when you are done.</string>
   <string name="dialog_gps_ok">Enable GPS</string>
   <string name="dialog_gps_cancel">Keep GPS disabled</string>
+  <string name="add_details">Add details</string>
+  <string name="hide_details">Hide details</string>
 </resources>

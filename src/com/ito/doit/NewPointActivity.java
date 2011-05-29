@@ -116,11 +116,13 @@ public class NewPointActivity extends MapActivity {
     sendData.setOnClickListener(new OnClickListener() {
       @Override
       public void onClick(View arg0) {
-        if (validateData()) {
+        if (lat != null && lon != null) {
           progress.show();
           Thread thread = new Thread(addPoint);
           thread.start();
           sendData.setEnabled(false);
+        } else {
+          Toast.makeText(NewPointActivity.this, "Waiting for gps location...", Toast.LENGTH_SHORT).show();
         }
       }
     });
@@ -304,10 +306,7 @@ public class NewPointActivity extends MapActivity {
       Thread thread = new Thread(generateAttributes);
       thread.start();
     }
-    if (lat == null || lon == null) {
-      Thread thread = new Thread(getLocation);
-      thread.start();
-    } else {
+    if (lat != null || lon != null) {
       mHandler.post(setLocation);
     }
 
@@ -317,20 +316,6 @@ public class NewPointActivity extends MapActivity {
     }
 
   }
-
-  private Runnable getLocation = new Runnable() {
-    @Override
-    public void run() {
-      while (!sharedPool.containsKey(AppConstants.SP_LOCATION) && doWork) {
-      }
-      if (!doWork)
-        return;
-      location = (Location) sharedPool.get(AppConstants.SP_LOCATION);
-      lat = location.getLatitude();
-      lon = location.getLongitude();
-      mHandler.post(setLocation);
-    }
-  };
 
   private Runnable setLocation = new Runnable() {
     @Override
@@ -415,7 +400,7 @@ public class NewPointActivity extends MapActivity {
         }
       }
       if (doWork) {
-        mHandler.post(invalidateAtributes);
+        mHandler.post(invalidateAttributes);
         finished = true;
       }
     }
@@ -580,7 +565,7 @@ public class NewPointActivity extends MapActivity {
     return label;
   }
 
-  private Runnable invalidateAtributes = new Runnable() {
+  private Runnable invalidateAttributes = new Runnable() {
     @Override
     public void run() {
       viewGroup.addView(layout);
@@ -677,7 +662,7 @@ public class NewPointActivity extends MapActivity {
     @Override
     public void onLocationChanged(Location locat) {
       if (gpsLocation) {
-        if (!location.hasAccuracy() && locat.hasAccuracy())
+        if (location == null || (!location.hasAccuracy() && locat.hasAccuracy()))
           location = locat;
         else if (location.hasAccuracy() && locat.hasAccuracy()) {
           if (location.getAccuracy() < locat.getAccuracy()) {
@@ -722,15 +707,6 @@ public class NewPointActivity extends MapActivity {
       return true;
     } else
       return super.onKeyDown(keyCode, event);
-  }
-
-  private boolean validateData() {
-
-    if (photoFile == null) {
-      Toast.makeText(mContext, "Photo is required!", Toast.LENGTH_SHORT).show();
-      return false;
-    }
-    return true;
   }
 
 }

@@ -72,7 +72,6 @@ public class MainService extends Service {
 
       if (locationListener != null) {
         locationListener.onLocationChanged(location);
-        Log.d("XXX", "isLocked MOTHERFUCKAA: " + locationHelper.isGpsLocked());
         locationListener.gotGpsSignal(locationHelper.isGpsLocked());
       }
       sharedPool.put(AppConstants.SP_LOCATION, location);

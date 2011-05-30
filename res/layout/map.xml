@@ -9,7 +9,7 @@
     android:layout_height="wrap_content"
     android:layout_alignParentTop="true"   
     android:clickable="true"
-    android:apiKey="0NJj_qfZY2upWIcYM2k-ok_eaJPTLAN-WbfJ4Qw"        
+    android:apiKey="0vh8HvJ0OLMjvDr7giG9EjsjBpHvhDbH-nPi-mw"        
 />
 	<com.ito.doit.CoverView
 		android:layout_centerInParent="true"

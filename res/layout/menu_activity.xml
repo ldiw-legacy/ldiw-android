@@ -12,7 +12,7 @@
 		android:layout_height="wrap_content"
 		android:layout_marginTop="10dip"
 		android:layout_marginBottom="50dip"
-		android:src="@drawable/doit"
+		android:src="@drawable/ldiw"
 		android:id="@+id/title"
 	/>
 	 

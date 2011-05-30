@@ -70,8 +70,11 @@ public class MainService extends Service {
         editor.commit();
       }
 
-      if (locationListener != null)
+      if (locationListener != null) {
         locationListener.onLocationChanged(location);
+        Log.d("XXX", "isLocked MOTHERFUCKAA: " + locationHelper.isGpsLocked());
+        locationListener.gotGpsSignal(locationHelper.isGpsLocked());
+      }
       sharedPool.put(AppConstants.SP_LOCATION, location);
       Log.i(TAG, "Location is available");
       Intent intent = new Intent(DoItActions.ACTION_RETURN_LOCATION);

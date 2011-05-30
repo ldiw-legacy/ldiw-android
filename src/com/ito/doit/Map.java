@@ -288,6 +288,10 @@ public class Map extends MapActivity {
       mapOverlays.add(locationOverlay);
       handler.post(invalidate);
     }
+
+    @Override
+    public void gotGpsSignal(boolean isLocked) {
+    }
   };
 
   private OnDataListener dataListener = new OnDataListener() {

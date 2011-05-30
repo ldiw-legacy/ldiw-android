@@ -2,6 +2,7 @@ package com.ito.doit;
 
 import java.util.Timer;
 import java.util.TimerTask;
+
 import android.content.Context;
 import android.location.Location;
 import android.location.LocationListener;
@@ -15,6 +16,7 @@ public class MyLocation {
   private boolean gps_enabled = false;
   private boolean network_enabled = false;
   private boolean continueRefresh = false;
+  private boolean gps_signal_locked = false;
 
   public void setRefreshing(boolean refresh) {
     continueRefresh = refresh;
@@ -83,8 +85,9 @@ public class MyLocation {
 
     // if there are both values use the latest one
     if (gps_loc != null && net_loc != null) {
-      if (gps_loc.getTime() > net_loc.getTime())
+      if (gps_loc.getTime() > net_loc.getTime()) {
         locationResult.gotLocation(gps_loc);
+      }
       else
         locationResult.gotLocation(net_loc);
       return true;
@@ -113,6 +116,10 @@ public class MyLocation {
     }
     return gps_enabled || network_enabled;
   }
+  
+  public boolean isGpsLocked() {
+    return gps_signal_locked;
+  }
 
   LocationListener locationListenerGps = new LocationListener() {
     public void onLocationChanged(Location location) {
@@ -122,6 +129,7 @@ public class MyLocation {
         lm.removeUpdates(locationListenerNetwork);
       }
       locationResult.gotLocation(location);
+      gps_signal_locked = true;
     }
 
     public void onProviderDisabled(String provider) {

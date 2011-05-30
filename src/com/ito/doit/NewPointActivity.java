@@ -71,7 +71,8 @@ public class NewPointActivity extends MapActivity {
   private Context mContext;
   private Handler mHandler;
   private boolean doWork;
-  private boolean finished;
+  private boolean finished; 
+  private boolean gps_locked = false;
   private ArrayList<FieldInfo> map;
   private HashMap<String, Set<String>> fieldSets;
   private Double lat;
@@ -116,13 +117,13 @@ public class NewPointActivity extends MapActivity {
     sendData.setOnClickListener(new OnClickListener() {
       @Override
       public void onClick(View arg0) {
-        if (lat != null && lon != null) {
+        if (lat != null && lon != null && gps_locked) {
           progress.show();
           Thread thread = new Thread(addPoint);
           thread.start();
           sendData.setEnabled(false);
         } else {
-          Toast.makeText(NewPointActivity.this, "Waiting for gps location...", Toast.LENGTH_SHORT).show();
+          Toast.makeText(NewPointActivity.this, "Waiting for location.", Toast.LENGTH_SHORT).show();
         }
       }
     });
@@ -676,6 +677,11 @@ public class NewPointActivity extends MapActivity {
         Intent intent = new Intent(DoItActions.ACTIONS_STOP_SEEK_LOCATION);
         mContext.sendBroadcast(intent);
       }
+    }
+
+    @Override
+    public void gotGpsSignal(boolean isLocked) {
+      gps_locked = isLocked; 
     }
   };
 

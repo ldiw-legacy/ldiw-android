@@ -59,7 +59,6 @@ import com.google.android.maps.MapController;
 import com.google.android.maps.MapView;
 import com.google.android.maps.Overlay;
 import com.google.android.maps.OverlayItem;
-import com.letsdoitworld.wastemapper.R;
 
 public class NewPointActivity extends MapActivity {
 
@@ -262,23 +261,25 @@ public class NewPointActivity extends MapActivity {
   };
 
   private void insertAttributes(ArrayList<BasicNameValuePair> array) {
-    for (FieldInfo info : map) {
-      String type = info.viewName;
-      if (type.contentEquals(EditText.class.getSimpleName())) {
-        EditText edit = (EditText) info.view;
-        array.add(new BasicNameValuePair(info.fieldName, edit.getEditableText().toString()));
-      } else if (type.contentEquals(Spinner.class.getSimpleName())) {
-        Spinner spinner = (Spinner) info.view;
-        int i = spinner.getSelectedItemPosition();
-        Set<String> set = fieldSets.get(info.fieldName);
-        String value = String.valueOf((set.toArray())[i]);
-        array.add(new BasicNameValuePair(info.fieldName, value));
-      } else if (type.contentEquals(CheckBox.class.getSimpleName())) {
-        CheckBox checkBox = (CheckBox) info.view;
-        if (checkBox.isChecked())
-          array.add(new BasicNameValuePair(info.fieldName, "1"));
-        else
-          array.add(new BasicNameValuePair(info.fieldName, "0"));
+    if (furtherDetailsWrapper.getVisibility() == View.VISIBLE) {
+      for (FieldInfo info : map) {
+        String type = info.viewName;
+        if (type.contentEquals(EditText.class.getSimpleName())) {
+          EditText edit = (EditText) info.view;
+          array.add(new BasicNameValuePair(info.fieldName, edit.getEditableText().toString()));
+        } else if (type.contentEquals(Spinner.class.getSimpleName())) {
+          Spinner spinner = (Spinner) info.view;
+          int i = spinner.getSelectedItemPosition();
+          Set<String> set = fieldSets.get(info.fieldName);
+          String value = String.valueOf((set.toArray())[i]);
+          array.add(new BasicNameValuePair(info.fieldName, value));
+        } else if (type.contentEquals(CheckBox.class.getSimpleName())) {
+          CheckBox checkBox = (CheckBox) info.view;
+          if (checkBox.isChecked())
+            array.add(new BasicNameValuePair(info.fieldName, "1"));
+          else
+            array.add(new BasicNameValuePair(info.fieldName, "0"));
+        }
       }
     }
   }

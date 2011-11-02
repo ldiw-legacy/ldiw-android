@@ -1,10 +1,9 @@
 package com.letsdoitworld.wastemapper;
 
 import java.util.ArrayList;
+
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONObject;
-
-import com.letsdoitworld.wastemapper.R;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -18,12 +17,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.AdapterView.OnItemSelectedListener;
 
 public class OptionsActivity extends Activity {
 
@@ -34,7 +33,7 @@ public class OptionsActivity extends Activity {
   private SharedPreferences preferences;
   private int[] bboxValues;
   private int[] maxresValues;
-  private String[] languageValues;
+  //private String[] languageValues;
   private Context mContext;
 
   @Override
@@ -49,7 +48,7 @@ public class OptionsActivity extends Activity {
     Resources res = getResources();
     bboxValues = res.getIntArray(R.array.array_bbox);
     maxresValues = res.getIntArray(R.array.array_maxres);
-    languageValues = res.getStringArray(R.array.array_language);
+    //languageValues = res.getStringArray(R.array.array_language);
     Thread thread = new Thread(createDialog);
     thread.start();
     Button button = (Button) findViewById(R.id.button_login);
@@ -76,6 +75,7 @@ public class OptionsActivity extends Activity {
         editor.commit();
         AppConstants.isLogged = false;
         mHandler.post(disableLogoff);
+        mHandler.post(enableLogin);
         mHandler.post(updateUsernameView);
       }
     });
@@ -134,6 +134,9 @@ public class OptionsActivity extends Activity {
               }
               if (login != null) {
                 sharedPool.put(AppConstants.SP_JSON_LOGIN, login);
+                /*Button button = (Button) findViewById(R.id.button_login);
+                button.setText(R.string.text_relogin);*/
+                mHandler.post(enableRelogin);
                 mHandler.post(enableLogoff);
                 sharedPool.put(AppConstants.SP_USERNAME, username);
                 mHandler.post(updateUsernameView);
@@ -170,10 +173,20 @@ public class OptionsActivity extends Activity {
     @Override
     public void run() {
       Button button = (Button) findViewById(R.id.button_login);
+      button.setText(R.string.text_login);
       button.setEnabled(true);
     }
   };
-
+  
+  private Runnable enableRelogin = new Runnable() {
+	    @Override
+	    public void run() {
+	      Button button = (Button) findViewById(R.id.button_login);
+	      button.setText(R.string.text_relogin);
+	      button.setEnabled(true);
+	    }
+  };
+  
   private Runnable enableLogoff = new Runnable() {
     @Override
     public void run() {
@@ -262,7 +275,7 @@ public class OptionsActivity extends Activity {
       }
     });
 
-    String language = (String) sharedPool.get(AppConstants.SP_LANGUAGE);
+    /*String language = (String) sharedPool.get(AppConstants.SP_LANGUAGE);
     spinner = (Spinner) findViewById(R.id.spinner_language);
     spinner.setSelection(getIndex(languageValues, language), false);
     spinner.setOnItemSelectedListener(new OnItemSelectedListener() {
@@ -279,7 +292,7 @@ public class OptionsActivity extends Activity {
       @Override
       public void onNothingSelected(AdapterView<?> arg0) {
       }
-    });
+    });*/
 
   }
 
@@ -290,12 +303,12 @@ public class OptionsActivity extends Activity {
     return 0;
   }
 
-  private int getIndex(String[] array, String value) {
+  /*private int getIndex(String[] array, String value) {
     for (int i = 0; i < array.length; i++)
       if (array[i].contentEquals(value))
         return i;
     return 0;
-  }
+  }*/
 
   private Runnable showToastLogin = new Runnable() {
     @Override

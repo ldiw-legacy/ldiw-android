@@ -7,6 +7,11 @@
   <string name="text_no_id">No id was found!</string>
   <string name="menu_list">List</string>
   <string name="menu_new">Add new point</string>
+  
+  <!-- new -->
+  <string name="add_new_pont">ADD NEW POINT</string>
+  <!-- end of new -->
+  
   <string name="menu_map">Map</string>
   <string name="text_composition">Composition:</string>
   <string name="text_desc">Description:</string>

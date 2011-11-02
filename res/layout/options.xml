@@ -153,32 +153,6 @@
 	android:id="@+id/line_3"
 />
 
-<TextView
-	android:layout_width="fill_parent"
-	android:layout_height="wrap_content"
-	android:text="@string/text_language"
-	android:id="@+id/text_language"
-	android:layout_below="@+id/line_3"
-	android:textColor="@color/cHead"
-	android:textStyle="bold"
-	android:textSize="@dimen/dTextSize"
-	android:layout_marginLeft="10dip"
-	android:layout_marginRight="10dip"
-	android:gravity="center"
-/>
-
-    
-<Spinner
-	android:layout_width="fill_parent"
-	android:layout_height="wrap_content"
-	android:layout_below="@+id/text_language"
-	android:layout_marginLeft="10dip"
-	android:layout_marginRight="10dip"
-	android:id="@+id/spinner_language"
-	android:entries="@array/language_values"
-	android:prompt="@string/prompt_language"
-/>
-
 <View
 	android:layout_width="fill_parent"
 	android:layout_height="2dip"

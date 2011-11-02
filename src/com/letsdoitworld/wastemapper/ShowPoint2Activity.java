@@ -1,6 +1,7 @@
 package com.letsdoitworld.wastemapper;
 
 import java.io.InputStream;
+import java.util.Locale;
 
 import com.letsdoitworld.wastemapper.R;
 
@@ -59,8 +60,8 @@ public class ShowPoint2Activity extends Activity {
       double width = metrics.widthPixels / metrics.density;
       width = width - (12 * metrics.density);
       url = (String) sharedPool.get(MainService.API_BASE_URL_KEY) + AppConstants.ADDRESS_WASTE_POINT_DETAILS + url + ".html&max_width=" + (int) width
-          + AppConstants.ADDRESS_LANGUAGE + (String) sharedPool.get(AppConstants.SP_LANGUAGE);
-
+          + AppConstants.ADDRESS_LANGUAGE + Locale.getDefault().getLanguage();
+      
       InputStream is = Downloader.connectGet(url);
       data = Downloader.convertStreamToString(is);
 

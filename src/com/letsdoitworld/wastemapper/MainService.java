@@ -4,6 +4,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -338,7 +339,7 @@ public class MainService extends Service {
         return;
 
       String url = (String) sharedPool.get(API_BASE_URL_KEY);
-      url = url + AppConstants.ADDRESS_JSON_EXTRA_FIELDS + AppConstants.ADDRESS_LANGUAGE + (String) sharedPool.get(AppConstants.SP_LANGUAGE);
+      url = url + AppConstants.ADDRESS_JSON_EXTRA_FIELDS + AppConstants.ADDRESS_LANGUAGE + Locale.getDefault().getLanguage();
       JSONArray extraFields = Downloader.getJSONArray(url);
       while (extraFields == null && isWorking) {
         extraFields = Downloader.getJSONArray(url);

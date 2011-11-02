@@ -71,7 +71,7 @@
       android:layout_height="wrap_content"
       android:layout_width="fill_parent" 
       android:layout_toLeftOf="@+id/center"
-      android:text="ADD NEW POINT" 
+      android:text="@string/add_new_pont" 
       android:layout_alignParentBottom="true"
       android:textColor="@color/cHead"
       android:textStyle="bold"

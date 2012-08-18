@@ -1,5 +1,4 @@
-1. Keelte tugi
-2. Offline Upload
-3. Upload to facebook:
-	
+1. Offline Upload
+2. Upload to facebook
 
+other additions are under discussion

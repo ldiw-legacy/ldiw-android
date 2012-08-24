@@ -3,15 +3,15 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     >   
- <com.letsdoitworld.wastemapper.RestrictMapView
+ <com.letsdoitworld.wastemapper.map.RestrictMapView
 	android:id="@+id/mapview"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:layout_alignParentTop="true"   
     android:clickable="true"
-    android:apiKey="0vh8HvJ0OLMjvDr7giG9EjsjBpHvhDbH-nPi-mw"        
+    android:apiKey="0Qh7gN-pnRnYfwG-E0XiSPDrsPOlEv8wReabVZw"        
 />
-	<com.letsdoitworld.wastemapper.CoverView
+ <com.letsdoitworld.wastemapper.map.CoverView
 		android:layout_centerInParent="true"
 		android:layout_width="fill_parent"
 		android:layout_height="fill_parent"

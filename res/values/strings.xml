@@ -99,4 +99,5 @@
   <string name="dialog_gps_cancel">Keep GPS disabled</string>
   <string name="add_details">Add details</string>
   <string name="hide_details">Hide details</string>
+  <string name="message_wait_for_location">No GPS location yet, please try again in few seconds.</string>
 </resources>

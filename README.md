@@ -5,6 +5,22 @@ This is Android client for Let's do it [World Waste Map] (http://www.letsdoitwor
 Info: jaak - at - letsdoitworld.org
 
 Translations: Please contribute using https://www.transifex.com/projects/p/ldiwandroid/
+Set it up locally:
+<pre><code>
+ register in web as user in transifex.com, join the project
+ cd <project dir>
+ sudo easy_install --upgrade transifex-client
+ tx init 
+   -> provide your transifex account
+</code></pre>   
+Update translation : 
+<pre><code>
+ tx pull 
+ </code></pre>
+Push local translation changes:
+<pre><code>
+ tx push -s
+</code></pre>
 
 ![Translations in Transifex](https://www.transifex.com/projects/p/ldiwandroid/resource/strings/chart/image_png)
 

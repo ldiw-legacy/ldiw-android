@@ -36,6 +36,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.provider.MediaStore;
 import android.text.InputType;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -78,6 +79,7 @@ public class NewPointActivity extends MapActivity {
 
   public static final int REQUEST_CODE_MAP = 22;
   public static final int REQUEST_CODE_CAMERA = 12;
+  protected static final String TAG = "NewPointActivity";
 
   private SharedPool sharedPool;
   private ViewGroup viewGroup;
@@ -131,13 +133,14 @@ public class NewPointActivity extends MapActivity {
     sendData.setOnClickListener(new OnClickListener() {
       @Override
       public void onClick(View arg0) {
-        if (lat != null && lon != null && gps_locked) {
+        if (lat != null && lon != null /*&& gps_locked*/) {
           progress.show();
           Thread thread = new Thread(addPoint);
           thread.start();
           sendData.setEnabled(false);
         } else {
-          Toast.makeText(NewPointActivity.this, "Waiting for location.", Toast.LENGTH_SHORT).show();
+            Log.d(TAG, "lat="+lat+" lon="+lon+" gps_locked="+gps_locked);
+          Toast.makeText(NewPointActivity.this, R.string.message_wait_for_location, Toast.LENGTH_SHORT).show();
         }
       }
     });

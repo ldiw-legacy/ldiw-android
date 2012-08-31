@@ -1,6 +1,6 @@
-Let's do it world Android client
+# Let's do it World Waste map Android client
 
-This is Android client for Let's do it [World Waste Map] (http://www.letsdoitworld.org/mapthewaste)
+[World Waste Map] (http://www.letsdoitworld.org/mapthewaste)
 
 Info: jaak - at - letsdoitworld.org
 
@@ -8,21 +8,15 @@ Translations: please contribute using https://www.transifex.com/projects/p/ldiwa
 ![Translations in Transifex](https://www.transifex.com/projects/p/ldiwandroid/resource/strings/chart/image_png)
 
 Developers: register user in transifex.com, install transifex client and pull translation updates from there. Push source file if new strings are added. Details:
-<pre><code>
- cd <project dir>
+ cd project_dir
  sudo easy_install --upgrade transifex-client
  tx init 
-   -> provide your transifex account
-</code></pre>   
-Get updated translations: 
-<pre><code>
- tx pull -a
- </code></pre>
-Push local source and translation changes:
-<pre><code>
- tx push -s -t
-</code></pre>
 
+Get updated translations: 
+ tx pull -a
+
+Push local source and translation changes:
+ tx push -s -t
 
 License:
 

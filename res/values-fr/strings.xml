@@ -6,7 +6,7 @@
   <string name="text_id">ID: </string>
   <string name="text_no_id">Aucune ID na trouvée</string>
   <string name="menu_list">Liste</string>
-  <string name="menu_new">Ajoute un nouveau point</string>
+  <string name="menu_new">Un nouveau point</string>
   <!--new-->
   <string name="add_new_pont">AJOUTE UN NOUVEAU POINT</string>
   <!--end of new-->

@@ -8,16 +8,20 @@ Translations: please contribute using https://www.transifex.com/projects/p/ldiwa
 ![Translations in Transifex](https://www.transifex.com/projects/p/ldiwandroid/resource/strings/chart/image_png)
 
 Developers: register user in transifex.com, install transifex client and pull translation updates from there. Push source file if new strings are added. Details:
-	cd project_dir
-	sudo easy_install --upgrade transifex-client
-	tx init 
-
+```
+  cd project_dir
+  sudo easy_install --upgrade transifex-client
+  tx init 
+```
 Get updated translations: 
-	tx pull -a
+```
+  tx pull -a
+```
 
 Push local source and translation changes:
-	tx push -s -t
-
+```
+  tx push -s -t
+```
 License:
 
  Copyright 2011 Let's Do It World. All rights reserved.

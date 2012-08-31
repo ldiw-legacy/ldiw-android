@@ -1,8 +1,12 @@
 Let's do it world Android client
 
-This is Android client for Let's do it [World project World Waste Map] (http://www.letsdoitworld.org/mapthewaste)
+This is Android client for Let's do it [World Waste Map] (http://www.letsdoitworld.org/mapthewaste)
 
 Info: jaak - at - letsdoitworld.org
+
+Translations: Please contribute using https://www.transifex.com/projects/p/ldiwandroid/
+
+![Translations in Transifex](https://www.transifex.com/projects/p/ldiwandroid/resource/strings/chart/image_png)
 
 License:
 

@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="app_name">World Cleanup Atık Haritalama</string>
+  <string name="list_empty">Bulunduğunuz Konumdaki Atıklar Listeleniyor</string>
+  <string name="list_text">Liste</string>
+  <string name="text_id">ID: </string>
+  <string name="text_no_id">Kaydınız Bulunamadı</string>
+  <string name="menu_list">Liste</string>
+  <string name="menu_new">Yeni Atık Ekle</string>
+  <!--new-->
+  <string name="add_new_pont">YENİ ATIK YERİ BİLDİR</string>
+  <!--end of new-->
+  <string name="menu_map">Harita</string>
+  <string name="text_composition">Atık Türü:</string>
+  <string name="text_desc">Açıklama:</string>
+  <string name="text_no_desc">Açıklama yok</string>
+  <string name="sOther">diğer</string>
+  <string name="sMetal">metal</string>
+  <string name="sLarge">büyük</string>
+  <string name="sGlass">cam</string>
+  <string name="sPaper">kağıt</string>
+  <string name="sPmp">pilastik</string>
+  <string name="sTires">lastik</string>
+  <string name="sNo">başlık yok</string>
+  <string name="map_dialog_title">Detayları göster</string>
+  <string name="map_dialog_message">Bu atık ile ilgili detayları görmek istermisin?</string>
+  <string name="map_dialog_yes">Evet</string>
+  <string name="map_dialog_no">Hayır</string>
+  <string name="text_metrics">km</string>
+  <string name="text_no_connection">İnternet bağlantısı gerekli!</string>
+  <string name="login_title">Giriş</string>
+  <string name="login_message">Atık yeri bildirmek için giriş yapmalısınız!</string>
+  <string name="login_user">Kullanıcı Adı:</string>
+  <string name="login_pass">Parola:</string>
+  <string name="login_yes">Giriş</string>
+  <string name="login_no">İptal</string>
+  <string name="button_map">HARİTA</string>
+  <string name="button_list">LİSTE</string>
+  <string name="button_new_point">YENİ ATIK</string>
+  <string name="button_about">AYARLAR</string>
+  <string name="message_added">Atık yeri eklendi!</string>
+  <string name="message_not_login">Atık yeri bildirmen için GİRİŞ yapmalısın</string>
+  <string name="message_not_added">Belirtilen Atık yeri eklenemedi. İnternet bağlantısı sorunlu</string>
+  <string name="menu_ok">TAMAM</string>
+  <string name="menu_cancel">İptal</string>
+  <string name="message_wait">Lütfen Bekleyiniz. Yükleniyor...</string>
+  <string name="message_adding">Lütfen bekleyiniz. Bilgiler gönderiliyor...</string>
+  <string name="text_BBOX">Sınırlayıcı Alan boyutunu tanımlayınız:</string>
+  <string name="text_max_results">Maksimum atık noktalama yerini tanımlayınız:</string>
+  <string name="text_login">Giriş</string>
+  <string name="text_relogin">Başka Kullanıcı ile giriş yapınız!</string>
+  <string name="text_logoff">Çıkış</string>
+  <string name="text_logged">Giriş Yapan:</string>
+  <string name="prompt_bbox">Sınırlayıcı Alan</string>
+  <string-array name="bbox_values">
+    <item>Küçük alan</item>
+    <item>Normal alan</item>
+    <item>Büyük alan</item>
+  </string-array>
+  <string name="prompt_maxres">Maksimum Sonuç</string>
+  <string-array name="maxres_values">
+    <item>5</item>
+    <item>10 (recommended)</item>
+    <item>15</item>
+    <item>20</item>
+  </string-array>
+  <string name="text_language">Tercih Edilen Dil: </string>
+  <string name="prompt_language">Dilini Seç</string>
+  <string-array name="language_values">
+    <item>İngilizce</item>
+    <item>Estonya</item>
+    <item>Fransızca</item>
+    <item>Almanca</item>
+    <item>Rusça</item>
+    <item>İspanyolca</item>
+    <item>Türkçe</item>
+  </string-array>
+  <string name="choose_title">Atık Yeri</string>
+  <string name="choose_msg">Bu Atık Yeri ile ilgili ne yapmak istiyorsunuz?</string>
+  <string name="choose_set">Bu yeri ayarla</string>
+  <string name="choose_leave">Eski yerde bırakın</string>
+  <string name="choose_cancel">İptal</string>
+  <string name="about_bbox">NOT: Sınırlayıcı alan kötü internet bağşantılarında kullanılmak içindir.İyi bir internet hızına sayipseniz bu farkı göremiyeceksiniz</string>
+  <string name="mode_advanced">GELİŞMİŞ</string>
+  <string name="toast_login">Giriş başarılı!</string>
+  <string name="toast_login_fail">Giriş başarısız!</string>
+  <string name="newpoint_exit_title">Çıkış hatası</string>
+  <string name="newpoint_exit_msg">Şimdi çıkarsanız; Girdiğiniz tüm veriler silinecektir. Çıkmakta eminmisiniz?</string>
+  <string name="dialog_gps_title">GPS kapalı</string>
+  <string name="dialog_gps_message">Lütfen Sistem ayarlarından GPS\'nizi açınız!. Açma işleminden sonra geri tuşuna basınız.</string>
+  <string name="dialog_gps_ok">GPS açık</string>
+  <string name="dialog_gps_cancel">GPS kapalı tut!</string>
+  <string name="add_details">Detay Ekle</string>
+  <string name="hide_details">Detayları gizle</string>
+  <string name="message_wait_for_location">GPS konumu belirlenemedi. Lütfen birkaç saniye sonra tekrar deneyiniz.</string>
+</resources>

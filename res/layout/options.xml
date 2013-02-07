@@ -153,7 +153,7 @@
 	android:id="@+id/line_3"
 />
 
-<View
+<!-- View
 	android:layout_width="fill_parent"
 	android:layout_height="2dip"
 	android:background="@drawable/juosta"
@@ -161,7 +161,7 @@
 	android:layout_marginTop="5dip"
 	android:layout_marginBottom="5dip"
 	android:id="@+id/line_4"
-/>
+/-->
 
      
     

@@ -91,4 +91,5 @@
   <string name="dialog_gps_cancel">Houd GPS uitgeschakeld</string>
   <string name="add_details">Voeg details toe</string>
   <string name="hide_details">Verberg details</string>
+  <string name="message_wait_for_location">Geen GPS Locatie gevonden, probeer het opnieuw in een paar seconden.</string>
 </resources>

@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="app_name">World Cleanup Waste Mapper</string>
+  <string name="list_empty">Lade Liste mit Müll-Punkten</string>
+  <string name="list_text">Liste</string>
+  <string name="text_id">ID:</string>
+  <string name="text_no_id">Keine ID gefunden!</string>
+  <string name="menu_list">Liste</string>
+  <string name="menu_new">Neuen Punkt erstellen</string>
+  <!--new-->
+  <string name="add_new_pont">NEUEN PUNKT ERSTELLEN</string>
+  <!--end of new-->
+  <string name="menu_map">Karte</string>
+  <string name="text_composition">Zusammenfassung</string>
+  <string name="text_desc">Beschreibung</string>
+  <string name="text_no_desc">Keine Beschreibung verfügbar</string>
+  <string name="sOther">andere</string>
+  <string name="sMetal">Metall</string>
+  <string name="sLarge">Groß</string>
+  <string name="sGlass">Glas</string>
+  <string name="sPaper">Papier</string>
+  <string name="sPmp">Plastik</string>
+  <string name="sTires">Reifen</string>
+  <string name="sNo">Kein Titel</string>
+  <string name="map_dialog_title">Zeige Details</string>
+  <string name="map_dialog_message">Willst du Details über diesen Punkt sehen?</string>
+  <string name="map_dialog_yes">Ja</string>
+  <string name="map_dialog_no">Nein</string>
+  <string name="text_metrics">km</string>
+  <string name="text_no_connection">Internetverbindung benötigt</string>
+  <string name="login_title">Login</string>
+  <string name="login_message">Du bist nicht eingeloggt. Bitte melde dich an\num fortzufahren</string>
+  <string name="login_user">Benutzername</string>
+  <string name="login_pass">Passwort</string>
+  <string name="login_yes">Login</string>
+  <string name="login_no">Abbrechen</string>
+  <string name="button_map">KARTE</string>
+  <string name="button_list">LISTE</string>
+  <string name="button_new_point">NEUER PUNKT</string>
+  <string name="button_about">EINSTELLUNGEN</string>
+  <string name="message_added">Müll-Punkt wurde hinzugefügt!</string>
+  <string name="message_not_login">Du musst eingeloggt sein um einen Müll-punkt hinzuzufügen</string>
+  <string name="message_not_added">Der Müll-Punkt konnte wegen einer gestörten Internetverbindung nicht\nerstellt werden</string>
+  <string name="menu_ok">OK</string>
+  <string name="menu_cancel">Abbrechen</string>
+  <string name="message_wait">Bitte hab Geduld. Lade...</string>
+  <string name="message_adding">Bitte hab Geduld. Sende Daten an Server...</string>
+  <string name="text_BBOX">Definieren Rahmengröße</string>
+  <string name="text_max_results">Definiere max. Müll-Punkte</string>
+  <string name="text_login">Login</string>
+  <string name="text_relogin">Login mit anderem Benutzernamen</string>
+  <string name="text_logoff">Ausloggen</string>
+  <string name="text_logged">Eingeloggt als:</string>
+  <string name="prompt_bbox">Rahmen</string>
+  <string-array name="bbox_values">
+    <item>Kleines Gebiet</item>
+    <item>Mittleres Gebiet</item>
+    <item>Großes Gebiet</item>
+  </string-array>
+  <string name="prompt_maxres">Maximale Ergebnisse</string>
+  <string-array name="maxres_values">
+    <item>5</item>
+    <item>10 (empfohlen)</item>
+    <item>15</item>
+    <item>20</item>
+  </string-array>
+  <string name="text_language">Bevorzugte Sprache</string>
+  <string name="prompt_language">Wähle Sprache</string>
+  <string-array name="language_values">
+    <item>Englisch</item>
+    <item>Litauisch</item>
+  </string-array>
+  <string name="choose_title">Müll-Punkt Ort</string>
+  <string name="choose_msg">Was willst du mit diesem Müll-Punkt machen?</string>
+  <string name="choose_set">Punkt festlegen</string>
+  <string name="choose_leave">verlasse alten Punkt</string>
+  <string name="choose_cancel">Abbrechen</string>
+  <string name="about_bbox">NOTIZ: Die Rahmenbox wird wegen schlechter Konnektivität genutzt. Bei eine guter Verbindung wirst du diese nicht sehen.</string>
+  <string name="mode_advanced">ERWEITERT</string>
+  <string name="toast_login">Du hast dich erfolgreich eingeloggt!</string>
+  <string name="toast_login_fail">Einloggen Fehlgeschlagen</string>
+  <string name="newpoint_exit_title">Wirklich beenden?</string>
+  <string name="newpoint_exit_msg">Wenn du du jetzt aufhörst gehen alle eingegebenen Daten\nverloren!\nBist du sicher, dass du das tun willst?</string>
+  <string name="dialog_gps_title">GPS ist ausgeschaltet</string>
+  <string name="dialog_gps_message">Bitte Aktiviere das GPS in deinen Geräteeinstellungen.\nDrücke zurück wenn du fertig bist.</string>
+  <string name="dialog_gps_ok">Aktiviere GPS</string>
+  <string name="dialog_gps_cancel">Halte GPS abgeschaltet</string>
+  <string name="add_details">Füge Details hinzu</string>
+  <string name="hide_details">verstecke Details</string>
+  <string name="message_wait_for_location">Konnte keine GPS Position feststellen, bitte warte noch ein paar Sekunden.</string>
+</resources>
